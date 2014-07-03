@@ -8,6 +8,6 @@ angular.module('myApp.controllers')
 
 			$scope.maxLength = settings.maxDescriptionLength;
 
-			// $scope.course = courseProvider.selectedCourse;
+
 		}
 	]);
