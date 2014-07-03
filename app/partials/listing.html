@@ -1,6 +1,6 @@
-	<div class="container" ng-init="expression">
+	<div class="container" >
 		<div class="row">
-			<div class="col-md-*" ng-controller="listingController" >
+			<div class="col-md-*">
 				<div class="row">
 					<div class="col-md-4">
 						<input type="text" placeholder="search..."  class="form-control"   ng-model="searchText"/>	
@@ -15,8 +15,8 @@
 				<br/>	
 
 				<div class="row well" ng-repeat="course in courses | filter :  { name: searchText} | orderBy : orderTerm | limitTo: maxResults" >
-					<div class="col-md-2">
-						<img ng-src="{{course.pic}}" width="100px" />	
+					<div class="col-md-3">
+						<img ng-src="http://i.imgur.com/{{course.pic}}" width="200px" />	
 					</div>
 					<div class="col-md-4">
 						<div>
@@ -33,7 +33,7 @@
 							</p>
 						</div>
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-1">
 						<div ng-bind="course.price | currency  ">{{course.name}}</div>
 					</div>
 					<div class="col-md-1">

@@ -7,33 +7,45 @@
 // In this case it is a simple value service.
 angular.module('myApp.services')
 	.factory('courseProvider', [
+
 		function() {
 
 			var courses = [{
-				name: 'Introduction to Programming',
-				description: 'An introduction to the theory and practice of computer programming, the emphasis of this course is on techniques of program development within the object-oriented paradigm. Topics include control structures, objects, classes, inheritance, simple data structures, and basic concepts of software development. Currently, Java is the programming language used in the course. This course has a required lab component, and is required for the major and minor in computer science. (Offered every semester)',
-				pic: 'http://i.imgur.com/JmGNipQ.png',
-				price: 300,
-				rating: 10
+				name: "Physics",
+				description: "Physics is the scientific study of matter and energy and how they interact with each other. This energy can take the form of motion, light, electricity, radiation, gravity . . . just about anything, honestly. Physics deals with matter on scales ranging from sub-atomic particles (i.e. the particles that make up the atom and the particles that make up those particles) to stars and even entire galaxies.",
+				pic: "bw2iIas.jpg",
+				price: 600
 			}, {
-				name: 'Data Structures and Algorithms',
-				description: 'This course continues the study of data structures and algorithms, focusing on algorithm design and analysis and the relationships between data representation, algorithm design, and program efficiency. Topics include advanced data structures, key algorithm design techniques, analysis of the time and space requirements of algorithms, and characterizing the difficulty of solving a problem. Concrete examples will be drawn from a variety of domains, such as algorithms for graphs and networks, cryptography, data compression, strings, geometric problems, indexing and search, numerical problems, and parallel computation. This course is required for the major in computer science. Prerequisites: CPSC 225; CPSC 229 is recommended. (Offered annually)',
-				pic: 'http://i.imgur.com/JqSysC9.jpg',
-				price: 500,
-				rating: 4
+				name: "Chemistry",
+				description: "Chemistry is the branch of science concerned with the substances of which matter is composed, the investigation of their properties and reactions, and the use of such reactions to form new substances.",
+				pic: "pNS83DA.jpg",
+				price: 750
 			}, {
-				name: 'Robotics',
-				description: 'An advanced study of the electronics, mechanics, sensors, and programming of robots. Emphasis is placed on programming robots which investigate, analyze, and interact with the environment. Topics may include mobile robots, legged robots, computer vision, and various approaches to robot intelligence. Prerequisite: CPSC 226 or permission of the instructor. (Offered alternate years)',
-				pic: 'http://i.imgur.com/LhNjJ5O.jpg',
-				price: 1000,
-				rating: 7
+				name: "Mathematics",
+				description: "Mathematics is the study of topics such as quantity (numbers), structure, space, and change. There is a range of views among mathematicians and philosophers as to the exact scope and definition of mathematics. Mathematicians seek out patterns[9][10] and use them to formulate new conjectures. Mathematicians resolve the truth or falsity of conjectures by mathematical proof. When mathematical structures are good models of real phenomena, then mathematical reasoning can provide insight or predictions about nature.",
+				pic: "bUqDLb9.jpg",
+				price: 500
 			}, {
-				name: 'Artificial Intelligence',
-				description: 'This course serves as an introduction to some of the major problems and techniques in the field of artificial intelligence. Artificial intelligence generally deals with problems that are too large, complex, or poorly-specified to have exact algorithmic solutions. Topics to be covered might include knowledge representation, natural language processing, machine learning, neural nets, case-based reasoning, intelligent agents, and artificial life. Prerequisite: CPSC 327 or 329. (Offered occasionally)',
-				pic: 'http://i.imgur.com/6QS5NKk.jpg',
-				price: 100,
-				rating: 3
-			}, ];
+				name: "Elements of Mechanical Engineering",
+				description: "Mechanical engineering is a discipline of engineering that applies the principles of engineering, physics and materials science for analysis, design, manufacturing, and maintenance of mechanical systems. It is the branch of engineering that involves the production and usage of heat and mechanical power for the design, production, and operation of machines and tools. It is one of the oldest and broadest engineering disciplines.",
+				pic: "1RBf5ee.jpg",
+				price: 900
+			}, {
+				name: "Introduction to Philosophy",
+				description: "This course will introduce you to some of the most important areas of research in contemporary philosophy. Each week a different philosopher will talk you through some of the most important questions and issues in their area of expertise.",
+				pic: "YDYjQRT.gif",
+				price: 690
+			}, {
+				name: "French",
+				description: "French or la langue française is a Romance language, belonging to the Indo-European family that is an official language in 29 countries, most of which form la francophonie (in French), the community of French-speaking countries. It is an official language of all United Nations agencies and of a large number of international organizations, including the European Union, NATO, WTO, and the ICRC. In 2011, French was deemed by Bloomberg Businessweek to be one of the top three most useful languages for business, behind English and Chinese, but ahead of Spanish and other European languages",
+				pic: "dfkMNGz.jpg",
+				price: 700
+			}, {
+				name: "Introduction to Algorithms",
+				description: "This course covers the essential information that every serious programmer needs to know about algorithms and data structures, with emphasis on applications and scientific performance analysis of Java implementations. Part I covers basic iterable data types, sorting, and searching algorithms. An introduction to fundamental data types, algorithms, and data structures, with emphasis on applications and scientific performance analysis of Java implementations. Specific topics covered include: union-find algorithms; basic iterable data types (stack, queues, and bags); sorting algorithms (quicksort, mergesort, heapsort) and applications; priority queues; binary search trees; red-black trees; hash tables; and symbol-table applications.",
+				pic: "27XhXJw.png",
+				price: 1000
+			}];;
 
 			function getCourses() {
 				return courses;

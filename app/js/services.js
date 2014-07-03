@@ -8,6 +8,6 @@
 angular.module('myApp.services', []).
   value('version', '0.1')
 .value('settings', {
-	maxDescriptionLength : 50,
+	maxDescriptionLength : 200,
 	maxResults : 3
 });
