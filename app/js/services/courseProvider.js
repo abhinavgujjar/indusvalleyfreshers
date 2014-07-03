@@ -51,8 +51,13 @@ angular.module('myApp.services')
 				return courses;
 			}
 
+			function addCourse(course){
+				courses.push(course);
+			}
+
 			return {
-				getCourses: getCourses
+				getCourses: getCourses,
+				add: addCourse
 			};
 
 		}

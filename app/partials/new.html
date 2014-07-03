@@ -1,1 +1,60 @@
-<h1>NEW COURSE</h1>
+<style>
+
+input.ng-pristine.ng-invalid{
+	background-color: yellow;
+
+}
+
+
+input.ng-dirty.ng-invalid{
+	background-color: pink;
+}
+
+input.ng-dirty.ng-valid{
+	background-color: green;
+	color: white
+}
+
+</style>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<ng-form class="form-horizontal" name="newCourseForm" role="form">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Title</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" ng-model="course.name" maxlength="10" required placeholder="Title"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Price</label>
+					<div class="col-sm-3">
+						<input type="number" min="0" class="form-control" ng-model="course.price" placeholder="price"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Image</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" ng-model="course.pic" placeholder="image url"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Date</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" ng-model="course.date" placeholder="enter date in dd/mm/yyyy" ng-pattern="/\d\d/\d\d/\d\d\d\d/"></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Description</label>
+					<div class="col-sm-10">
+						<textarea rows="6" class="form-control" ng-model="course.description" placeholder="Description"></textarea></div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button class="btn btn-success pull-right" ng-disabled="newCourseForm.$invalid" ng-click="addCourse(course, newCourseForm)">Create</button>
+					</div>
+				</div>
+			</ng-form>
+		</div>
+		<div class="col-md-4">
+			<img ng-src="http://i.imgur.com/{{course.pic}}" width="200px">
+		</div>
+	</div>
+</div>
