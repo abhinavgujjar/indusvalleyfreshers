@@ -23,6 +23,10 @@ config(['$routeProvider',
 			templateUrl: 'partials/new.html',
 			controller: 'newController'
 		});
+		$routeProvider.when('/details/:id', {
+			templateUrl: 'partials/details.html',
+			controller: 'detailsController'
+		});
 		$routeProvider.otherwise({
 			redirectTo: '/listing'
 		});

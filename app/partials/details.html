@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="col-md-3">
+		<img ng-src="http://i.imgur.com/{{course.pic}}" width="200px" />
+	</div>
+	<div class="col-md-4">
+		<div>
+			<a href='' ng-click="showCourseDetails(course)" class="h4">{{course.name | uppercase}}</a>
+		</div>
+		<div>
+			<p>
+				<span ng-show="!showCompleteDescription">{{course.description | limitTo : maxLength}}</span>
+				<span ng-show="showCompleteDescription">{{course.description}}</span>
+				<span ng-show="course.description.length >maxLength && !showCompleteDescription">...</span>
+				<a href='' ng-show="course.description.length >
+					maxLength && !showCompleteDescription" ng-click="showCompleteDescription = true" >more
+				</a>
+			</p>
+		</div>
+	</div>
+	<div class="col-md-1">
+		<div ng-bind="course.price | currency  ">{{course.name}}</div>
+	</div>
+	<div class="col-md-1">
+		<button class="btn btn-sm btn-success" ng-click="add(course)">add</button>
+	</div>
+
+</div>
