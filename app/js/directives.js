@@ -2,6 +2,10 @@
 
 /* Directives */
 
+var settings = {
+	maxDescriptionLength : 50,
+	maxResults : 5
+};
 
 angular.module('myApp.directives', []).
   directive('appVersion', ['version', function(version) {
