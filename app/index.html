@@ -1,113 +1,56 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7">
-	<![endif]-->
-	<!--[if IE 7]>
-	<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8">
-		<![endif]-->
-		<!--[if IE 8]>
-		<html lang="en" ng-app="myApp" class="no-js lt-ie9">
-			<![endif]-->
-			<!--[if gt IE 8]>
-			<!-->
-			<html lang="en" ng-app="myApp" class="no-js">
-				<!--<![endif]-->
+
+<html lang="en" ng-app="myApp" class="no-js">
 <head>
-				<meta charset="utf-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<title>My AngularJS App</title>
-				<meta name="description" content="">
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
-				<link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-				<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-				<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>My AngularJS App</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+	<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 
-				<nav class="navbar navbar-default" role="navigation">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<a class="navbar-brand" href="#">Coursera</a>
-						</div>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Coursera</a>
+			</div>
 
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li >
-									<a href="#">List Courses</a>
-								</li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<li>
-									<a href="#">Post New Course</a>
-								</li>
-							</ul>
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li >
+						<a href="#">List Courses</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="#">Post New Course</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 
-				<div class="container" ng-init="expression">
-					<div class="row">
-						<div class="col-md-*" ng-controller="listingController" >
-							<div class="row">
-								<div class="col-md-4">
-									<input type="text" placeholder="search..."  class="form-control"   ng-model="searchText"/>
-								</div>
-								<div class="col-md-4 col-md-offset-2">
-									<select class="form-control" ng-model="orderTerm">
-										<option value="name">Name of course</option>
-										<option value="price">Price of course</option>
-									</select>
-								</div>
-							</div>
-							<br/>
+	<ng-view></ng-view>
 
-							<div class="row well" ng-repeat="course in courses | filter :  { name: searchText} | orderBy : orderTerm | limitTo: maxResults" >
-								<div class="col-md-2">
-									<img ng-src="{{course.pic}}" width="100px" />
-								</div>
-								<div class="col-md-4">
-									<div>
-										<a href='#/details' class="h4">{{course.name | uppercase}}</a>
-									</div>
-									<div>
-										<p>
-											<span ng-show="!showCompleteDescription">{{course.description | limitTo : maxLength}}</span>
-											<span ng-show="showCompleteDescription">{{course.description}}</span>
-											<span ng-show="course.description.length >maxLength && !showCompleteDescription">...</span>
-											<a href='' ng-show="course.description.length >
-												maxLength && !showCompleteDescription" ng-click="showCompleteDescription = true" >more
-											</a>
-										</p>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div ng-bind="course.price | currency  ">{{course.name}}</div>
-								</div>
-								<div class="col-md-1">
-									<button class="btn btn-sm btn-success" ng-click="add(course)">add</button>
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-				<!-- In production use:
+	<!-- In production use:
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-			-->
-			<script src="bower_components/angular/angular.js"></script>
-			<script src="bower_components/angular-route/angular-route.js"></script>
-			<script src="js/app.js"></script>
-			<script src="js/services.js"></script>
-			<script src="js/filters.js"></script>
-			<script src="js/directives.js"></script>
-			<script src="js/controllers/listingController.js"></script>
-			<script src="js/services/courseProvider.js"></script>
+-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/controllers/listingController.js"></script>
+<script src="js/services/courseProvider.js"></script>
 </body>
-		</html>
+</html>

@@ -5,10 +5,11 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('myApp.services').
-	.factory('courseProvider', function(){
+angular.module('myApp.services')
+	.factory('courseProvider', [
+		function() {
 
-		var courses  = [{
+			var courses = [{
 				name: 'Introduction to Programming',
 				description: 'An introduction to the theory and practice of computer programming, the emphasis of this course is on techniques of program development within the object-oriented paradigm. Topics include control structures, objects, classes, inheritance, simple data structures, and basic concepts of software development. Currently, Java is the programming language used in the course. This course has a required lab component, and is required for the major and minor in computer science. (Offered every semester)',
 				pic: 'http://i.imgur.com/JmGNipQ.png',
@@ -34,11 +35,13 @@ angular.module('myApp.services').
 				rating: 3
 			}, ];
 
-		function getCourses(){
-			return courses;
-		}
+			function getCourses() {
+				return courses;
+			}
 
-		return {
-			getCourses: getCourses
+			return {
+				getCourses: getCourses
+			};
+
 		}
-	})
+	]);
