@@ -21,20 +21,24 @@ angular.module('myApp.services')
 
 			function getCourse(id) {
 
-				var defer = $q.defer();
+				var deferred = $q.defer();
 
-				$http.get('data/courses.json').success(function(courses) {
+				var targetCourse;
+
+				var courses;
+				$http.get('data/courses.json').success(function(data) {
+					courses = data;
 
 					angular.forEach(courses, function(item, index) {
 						if (item.id === id) {
-							defer.resolve(item);
+							targetCourse = item;
+
+							deferred.resolve(targetCourse);
 						}
 					})
-
 				});
 
-
-				return defer.promise;
+				return deferred.promise;
 			}
 
 			return {

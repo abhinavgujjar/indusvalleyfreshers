@@ -4,9 +4,11 @@ angular.module('myApp.controllers')
 
 			var courseId = $routeParams.id;
 
-			courseProvider.get(courseId).then(function(course){
-				$scope.course = course;
-			});
+			var promise = courseProvider.get(courseId);
+
+			promise.then(function(data){
+				$scope.course = data;
+			})
 
 			$scope.maxLength = settings.maxDescriptionLength;
 
