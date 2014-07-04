@@ -6,9 +6,9 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('myApp.services')
-	.factory('courseProvider', ['$http',
+	.factory('courseProvider', ['$http', '$q',
 
-		function($http) {
+		function($http, $q) {
 
 
 			function getCourses() {
@@ -20,15 +20,21 @@ angular.module('myApp.services')
 			}
 
 			function getCourse(id) {
-				var targetCourse;
 
-				angular.forEach(courses, function(item, index) {
-					if (item.id === id) {
-						targetCourse = item;
-					}
-				})
+				var defer = $q.defer();
 
-				return targetCourse;
+				$http.get('data/courses.json').success(function(courses) {
+
+					angular.forEach(courses, function(item, index) {
+						if (item.id === id) {
+							defer.resolve(item);
+						}
+					})
+
+				});
+
+
+				return defer.promise;
 			}
 
 			return {
