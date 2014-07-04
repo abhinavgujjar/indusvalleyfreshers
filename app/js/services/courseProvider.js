@@ -6,39 +6,75 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('myApp.services')
-	.factory('courseProvider', ['$http', '$q',
+	.factory('courseProvider', ['$http', '$q', '$resource', 'parseSettings',
 
-		function($http, $q) {
+		function($http, $q, $resource, parseSettings) {
+
+			// var jamRef = $resource('https://api.parse.com/1/classes/jams/:id', null, {
+			// 	post: {
+			// 		method: 'POST',
+			// 		isArray: false,
+			// 		headers: parseHeaders
+			// 	},
+			// 	query: {
+			// 		method: 'GET',
+			// 		isArray: false,
+			// 		headers: parseHeaders,
+			// 		transformResponse: function(data) {
+			// 			var raw = angular.fromJson(data);
+			// 			var result = {};
+
+			// 			angular.forEach(raw.results, function(item, index) {
+			// 				result[index] = item;
+			// 			});
+
+			// 			return result;
+			// 		}
+			// 	},
+			// 	get: {
+			// 		method: 'GET',
+			// 		isArray: false,
+			// 		headers: parseHeaders
+			// 	},
+			// 	update: {
+			// 		method: 'PUT',
+			// 		isArray: false,
+			// 		headers: parseHeaders
+			// 	}
+			// });
+
+			var courseRef = $resource('https://api.parse.com/1/classes/course/:id', null, {
+				get : {
+					method: 'GET',
+					headers: parseSettings,
+					isArray: true,
+					transformResponse : function(data){
+						var raw = angular.fromJson(data);
+						return raw.results;
+					}
+				},
+				create: {
+					method : 'POST',
+					isArray : false,
+					headers: parseSettings
+				}
+			})
 
 
 			function getCourses() {
-				return $http.get('data/courses.json');
+				return courseRef.get();
 			}
 
 			function addCourse(course) {
-				courses.push(course);
+				courseRef.create(course);
 			}
 
 			function getCourse(id) {
 
-				var deferred = $q.defer();
-
-				var targetCourse;
-
-				var courses;
-				$http.get('data/courses.json').success(function(data) {
-					courses = data;
-
-					angular.forEach(courses, function(item, index) {
-						if (item.id === id) {
-							targetCourse = item;
-
-							deferred.resolve(targetCourse);
-						}
-					})
+				return courseRef.get({
+					id: id
 				});
 
-				return deferred.promise;
 			}
 
 			return {

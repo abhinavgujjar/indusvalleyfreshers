@@ -4,9 +4,7 @@ angular.module('myApp.controllers')
 
 			$scope.maxLength = settings.maxDescriptionLength;
 			$scope.maxResults = settings.maxResults;
-			courseProvider.getCourses().success(function (data){
-				$scope.courses = data;	
-			});
+			$scope.courses = courseProvider.getCourses();
 
 			$scope.showCourseDetails = function(course){
 				courseProvider.selectedCourse = course;

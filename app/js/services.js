@@ -11,6 +11,6 @@ angular.module('myApp.services', []).
 	maxDescriptionLength : 200,
 	maxResults : 20
 }).value('parseSettings', {
-	'X-Parse-Application-Id' : '	',
-	'X-Parse-REST-API-Key' : '	',
+	'X-Parse-Application-Id' : '',
+	'X-Parse-REST-API-Key' : '',
 });
